@@ -1,3 +1,13 @@
+<!-- Define a function to render each goal -->
+<% function renderGoal(goal) { %>
+    <li>
+        <strong>Title:</strong> <%= goal.title %><br>
+        <strong>Description:</strong> <%= goal.description %><br>
+        <strong>Target Date:</strong> <%= goal.targetDate %><br>
+        <strong>Achieved:</strong> <%= goal.achieved %>
+    </li>
+<% } %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +20,8 @@
     <h1>Goals List</h1>
     <ul>
         <% if (goals.length > 0) { %>
-            <li><%= goals[0].title %></li> <!-- Render the title of the first goal -->
+            <!-- Call the renderGoal function for each goal -->
+            <% goals.forEach(renderGoal); %>
         <% } else { %>
             <li>No goals found.</li>
         <% } %>
